@@ -22,7 +22,6 @@ services:
     restart: unless-stopped
     env_file: ./.env
     image: jobswire-backend # the image to use
-    container_name: jobswire # what to label the container for docker ps
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
@@ -44,7 +43,6 @@ services:
       args:
         - REACT_APP_API_BASE_URL=$CLIENT_API_BASE_URL
     image: jobswire-frontend # the image to use
-    container_name: jobswire # what to label the container for docker ps
     ports:
       - $REACT_LOCAL_PORT:$REACT_DOCKER_PORT
     networks:
